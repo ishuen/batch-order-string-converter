@@ -11,3 +11,8 @@ if (argv.decode) {
 	console.log("Decoded string: ", str);
 	console.log("Object array: ", JSON.parse(str));
 }
+
+if (!argv.encode && !argv.decode) {
+	const { _, $0, ...rest} = argv;
+	console.log("Encoded string: ", encodeURIComponent(JSON.stringify([rest])));
+}
